@@ -1,0 +1,54 @@
+<div></div>
+
+<h2>Create</h2>
+<form class="create" action="/create" method="post" onsubmit="dynamicResponse(this); return false;">
+	<input type="text" name="username" placeholder="Username">
+	<input type="text" name="firstName" placeholder="First Name">
+	<input type="text" name="lastName" placeholder="Last Name">
+	<input type="email" name="email" placeholder="Email">
+	<input type="password" name="password" placeholder="Password">
+	<input type="submit" value="Submit"/>
+</form>
+
+<h2>Read</h2>
+<form class="read" action="/read" method="post" onsubmit="dynamicResponse(this); return false;">
+	<select name="allOrSingle">
+		<option>single</option>
+		<option>all</option>
+	</select>
+	<input type="text" name="username" placeholder="Username"/>
+	<input type="submit" value="Submit"/>
+</form>
+
+<h2>Update</h2>
+<form class="update" action="/update" method="post" onsubmit="dynamicResponse(this); return false;">
+	Username:
+	<input type="text" name="byValue" placeholder="Username"/>
+	New First Name:
+	<input type="text" name="toValue" placeholder="First name"/>
+	<input type="submit" value="Submit"/>
+</form>
+
+<h2>Delete</h2>
+<form class="delete" action="/delete" data-method="delete" onsubmit="dynamicResponse(this); return false;">
+	<input type="submit" value="Delete"/>
+</form>
+
+
+<script>
+	function dynamicResponse(form) {
+		var dataMethod = form.getAttribute('data-method');
+		var method = (dataMethod) ? dataMethod : form.method;
+		var action = form.action;
+		var payload = (new FormData(form)) ? new FormData(form) : null;
+
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4 && xhr.status == 200) {
+				document.querySelector('div').innerText = xhr.responseText;
+			}
+		}
+		xhr.open(method, action, true);
+		xhr.send(payload);
+	}
+</script>

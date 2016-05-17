@@ -1,0 +1,39 @@
+{
+  "name": "hapi-marko-mongodb-mongoose",
+  "version": "1.0.0",
+  "description": "A Hapi Marko MongoDB Mongoose Quick Starter",
+  "main": "app.js",
+  "dependencies": {
+    "hapi": "^11.0.2",
+    "hapi-marko": "^0.3.1",
+    "inert": "^3.2.0",
+    "marko": "^2.7.28",
+    "mongoose": "^4.2.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "nodemon app.js",
+    "start": "node app.js",
+    "startLinux": "nodejs app.js",
+    "startForever": "forever start --spinSleepTime 10000 app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexanderElias/hapi-marko-mongodb-mongoose-boilerplate.git"
+  },
+  "keywords": [
+    "hapi",
+    "hapi.js",
+    "marko",
+    "marko.js",
+    "node",
+    "node.js",
+    "boilerplate"
+  ],
+  "author": "Alexander Elias",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AlexanderElias/hapi-marko-mongodb-mongoose-/issues"
+  },
+  "homepage": "https://github.com/AlexanderElias/hapi-marko-mongodb-mongoose-#readme"
+}

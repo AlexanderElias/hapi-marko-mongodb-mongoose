@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>${data.title}</title>
+
+		<link rel="stylesheet" href="/css/all.css">
+	</head>
+	<body>
+		<header>
+			<include template="../marginals/header.marko" template-data="data"/>
+		</header>
+
+		<main>
+			<include template="$data.includeName" template-data="data"/>
+		</main>
+
+
+		<footer>
+			<include template="../marginals/footer.marko" template-data="data"/>
+		</footer>
+	</body>
+</html>

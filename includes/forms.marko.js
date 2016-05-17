@@ -1,0 +1,10 @@
+function create(__helpers) {
+  var str = __helpers.s,
+      empty = __helpers.e,
+      notEmpty = __helpers.ne;
+
+  return function render(data, out) {
+    out.w('<div></div><h2>Create</h2><form class="create" action="/create" method="post" onsubmit="dynamicResponse(this); return false;"><input type="text" name="username" placeholder="Username"><input type="text" name="firstName" placeholder="First Name"><input type="text" name="lastName" placeholder="Last Name"><input type="email" name="email" placeholder="Email"><input type="password" name="password" placeholder="Password"><input type="submit" value="Submit"></form><h2>Read</h2><form class="read" action="/read" method="post" onsubmit="dynamicResponse(this); return false;"><select name="allOrSingle"><option>single</option><option>all</option></select><input type="text" name="username" placeholder="Username"><input type="submit" value="Submit"></form><h2>Update First Name</h2><form class="update" action="/update" method="post" onsubmit="dynamicResponse(this); return false;">Username: <input type="text" name="byValue" placeholder="Username"> New First Name: <input type="text" name="toValue" placeholder="First name"><input type="submit" value="Submit"></form><h2>Delete</h2><form class="delete" action="/delete" data-method="delete" onsubmit="dynamicResponse(this); return false;"><input type="submit" value="Delete"></form><script>\n\tfunction dynamicResponse(form) {\n\t\tvar dataMethod = form.getAttribute(\'data-method\');\n\t\tvar method = (dataMethod) ? dataMethod : form.method;\n\t\tvar action = form.action;\n\t\tvar payload = (new FormData(form)) ? new FormData(form) : null;\n\n\t\tvar xhr = new XMLHttpRequest();\n\t\txhr.onreadystatechange = function() {\n\t\t\tif (xhr.readyState == 4 && xhr.status == 200) {\n\t\t\t\tdocument.querySelector(\'div\').innerText = xhr.responseText;\n\t\t\t}\n\t\t}\n\t\txhr.open(method, action, true);\n\t\txhr.send(payload);\n\t}\n</script>');
+  };
+}
+(module.exports = require("marko").c(__filename)).c(create);
