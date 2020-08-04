@@ -8,7 +8,7 @@
     "hapi-marko": "^0.3.1",
     "inert": "^3.2.0",
     "marko": "^2.7.28",
-    "mongoose": "^4.2.3"
+    "mongoose": "^5.9.27"
   },
   "devDependencies": {},
   "scripts": {
